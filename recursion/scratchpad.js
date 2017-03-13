@@ -1,17 +1,24 @@
 document.title = "JS Recusion";
 document.body.style.textAlign = "center";
 document.body.style.fontFamily = "monospace";
-document.body.style.width = "40000px";
+document.body.style.width = "auto";
 document.body.style.whiteSpace = "nowrap";
 document.body.style.overflowX = "scroll";
 document.body.style.overflowY = "scroll";
 
 
+
 var FibDiv = document.createElement("div");
 document.body.appendChild(FibDiv); 
+//FibDiv.style.backgroundColor = "red";
+FibDiv.style.marginBottom = "200px";
+
 
 var PellDiv = document.createElement("div");
 document.body.appendChild(PellDiv); 
+//PellDiv.style.backgroundColor = "blue";
+PellDiv.style.marginTop = "400px";
+
 
 var TribDiv = document.createElement("div");
 document.body.appendChild(TribDiv);
@@ -76,10 +83,10 @@ function createPell(n, color){
         div.appendChild(p);
     }
     else{
-        var left = createPell(n - 1, color - 1111);
-        var right = createPell(n - 2, color - 1111);
+        var left = createPell(n - 1, color - 110011);
+        var right = createPell(n - 2, color - 110011);
         
-        value = left.value + right.value;
+        value = (2 * left.value) + right.value;
         
         var p = document.createElement("p");
         p.textContent = "Pell("+n+") = " + value;
@@ -119,5 +126,5 @@ var Trib = function (n, node){
     node.appendChild(content.html);
 } 
 
-Fib(11, FibDiv);
-Pell(11, PellDiv);
+Fib(6, FibDiv);
+Pell(6, PellDiv);
