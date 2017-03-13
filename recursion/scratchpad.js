@@ -6,6 +6,12 @@ document.body.style.whiteSpace = "nowrap";
 document.body.style.overflowX = "scroll";
 document.body.style.overflowY = "scroll";
 
+var links = document.createElement("div");
+links.appendChild(newlink("Fibonacci", "https://oeis.org/A000045"))
+links.appendChild(newlink("Pell", "https://oeis.org/A000129"))
+links.appendChild(newlink("Tribonacci", "https://oeis.org/A000073"))
+document.body.appendChild(links);
+links.style.textAlign = "left";
 
 
 var FibDiv = document.createElement("div");
@@ -21,7 +27,15 @@ var TribDiv = document.createElement("div");
 document.body.appendChild(TribDiv);
 TribDiv.style.marginTop = "500px";
 
-
+function newlink(series, link){                         //function for the hrefs
+    var a = document.createElement("a");
+    var words = document.createTextNode(series);
+    a.appendChild(words);
+    a.href = link;
+    
+    a.style.margin = "20px";
+    return a;
+}
 
 function createFib(n, color){
     var value;
