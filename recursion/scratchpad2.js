@@ -6,36 +6,38 @@ document.body.style.whiteSpace = "nowrap";
 document.body.style.overflowX = "scroll";
 document.body.style.overflowY = "scroll";
 
-var links = document.createElement("div");
+/*var links = document.createElement("div");
 links.appendChild(newlink("Fibonacci", "https://oeis.org/A000045"))
 links.appendChild(newlink("Pell", "https://oeis.org/A000129"))
 links.appendChild(newlink("Tribonacci", "https://oeis.org/A000073"))
 document.body.appendChild(links);
 links.style.textAlign = "left";
+links.style.position = "fixed";
+links.style.bottom = "0px";
+*/
+
+// var FibDiv = document.createElement("div");
+// document.body.appendChild(FibDiv); 
 
 
-var FibDiv = document.createElement("div");
-document.body.appendChild(FibDiv); 
+// var PellDiv = document.createElement("div");
+// document.body.appendChild(PellDiv); 
+// PellDiv.style.marginTop = "400px";
 
 
-var PellDiv = document.createElement("div");
-document.body.appendChild(PellDiv); 
-PellDiv.style.marginTop = "400px";
+// var TribDiv = document.createElement("div");
+// document.body.appendChild(TribDiv);
+// TribDiv.style.marginTop = "500px";
 
-
-var TribDiv = document.createElement("div");
-document.body.appendChild(TribDiv);
-TribDiv.style.marginTop = "500px";
-
-function newlink(series, link){                         //function for the hrefs
-    var a = document.createElement("a");
-    var words = document.createTextNode(series);
-    a.appendChild(words);
-    a.href = link;
+// function newlink(series, link){                         //function for the hrefs
+//     var a = document.createElement("a");
+//     var words = document.createTextNode(series);
+//     a.appendChild(words);
+//     a.href = link;
     
-    a.style.margin = "20px";
-    return a;
-}
+//     a.style.margin = "20px";
+//     return a;
+// }
 
 function createFib(n, color){
     var value;
@@ -181,6 +183,23 @@ var Trib = function (n, node){
     node.appendChild(content.html);
 } 
 
-Fib(6, FibDiv);
-Pell(6, PellDiv);
-Trib(6, TribDiv);
+var fibButton = function(me){
+    var form = me.parentNode;
+	var slider = form.querySelector('input');
+	var value = slider.value;
+	Fib(value, form.parentNode);
+}
+
+var fibSlider = function(me){
+    var form = me.parentNode;
+	var button = form.querySelector('button');
+	button.textContent = 'Fib(' + me.value + ')';
+}
+
+// function pellButton(){
+//     Pell(2, PellDiv);
+// }
+
+// function tribButton(){
+//     Trib(2, TribDiv);
+// }
