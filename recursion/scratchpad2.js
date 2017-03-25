@@ -1,12 +1,11 @@
 document.title = "JS Recusion";
-document.body.style.textAlign = "center";
 document.body.style.fontFamily = "monospace";
 document.body.style.width = "10000px";
 document.body.style.whiteSpace = "nowrap";
 document.body.style.overflowX = "scroll";
 document.body.style.overflowY = "scroll";
 
-/*var links = document.createElement("div");
+var links = document.createElement("div");
 links.appendChild(newlink("Fibonacci", "https://oeis.org/A000045"))
 links.appendChild(newlink("Pell", "https://oeis.org/A000129"))
 links.appendChild(newlink("Tribonacci", "https://oeis.org/A000073"))
@@ -14,34 +13,22 @@ document.body.appendChild(links);
 links.style.textAlign = "left";
 links.style.position = "fixed";
 links.style.bottom = "0px";
-*/
-
-// var FibDiv = document.createElement("div");
-// document.body.appendChild(FibDiv); 
 
 
-// var PellDiv = document.createElement("div");
-// document.body.appendChild(PellDiv); 
-// PellDiv.style.marginTop = "400px";
-
-
-// var TribDiv = document.createElement("div");
-// document.body.appendChild(TribDiv);
-// TribDiv.style.marginTop = "500px";
-
-// function newlink(series, link){                         //function for the hrefs
-//     var a = document.createElement("a");
-//     var words = document.createTextNode(series);
-//     a.appendChild(words);
-//     a.href = link;
+function newlink(series, link){                         //function for the hrefs
+    var a = document.createElement("a");
+    var words = document.createTextNode(series);
+    a.appendChild(words);
+    a.href = link;
     
-//     a.style.margin = "20px";
-//     return a;
-// }
+    a.style.margin = "20px";
+    return a;
+}
 
 function createFib(n, color){
     var value;
     var div = document.createElement("div");
+    div.style.textAlign = "center";
     var background = "#" + color;
     div.style.backgroundColor = background;
     if(n < 2){
@@ -83,6 +70,7 @@ function createFib(n, color){
 function createPell(n, color){
     var value;
     var div = document.createElement("div");
+    div.style.textAlign = "center";
     var background = "#" + color;
     div.style.backgroundColor = background;
     if(n < 2){
@@ -124,6 +112,7 @@ function createPell(n, color){
 function createTrib(n, color){
     var value;
     var div = document.createElement("div");
+    div.style.textAlign = "center";
     var background = "#" + color;
     div.style.backgroundColor = background;
     if(n < 2){
@@ -169,6 +158,12 @@ function createTrib(n, color){
 }
 
 var Fib = function (n, node){
+    var existing = node.querySelector('div');
+    if(existing){
+        node.removeChild(existing);
+    }
+    
+    
     var content = createFib(n, 999999);
     node.appendChild(content.html);
 }
