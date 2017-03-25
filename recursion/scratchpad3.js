@@ -178,23 +178,70 @@ var Trib = function (n, node){
     node.appendChild(content.html);
 } 
 
+
+
 var fibButton = function(me){
     var form = me.parentNode;
 	var slider = form.querySelector('input');
 	var value = slider.value;
+	
+	var existing = form.parentNode.querySelector('div');
+    if(existing){
+        form.parentNode.removeChild(existing);
+    }
+	
 	Fib(value, form.parentNode);
 }
 
 var fibSlider = function(me){
+    pellSlider(me);
     var form = me.parentNode;
-	var button = form.querySelector('button');
+	var button = form.querySelector('button.fib');
 	button.textContent = 'Fib(' + me.value + ')';
 }
 
-// function pellButton(){
-//     Pell(2, PellDiv);
-// }
+var pellButton = function(me){
+    var form = me.parentNode;
+	var slider = form.querySelector('input');
+	var value = slider.value;
+	
+	var existing = form.parentNode.querySelector('div');
+    if(existing){
+        form.parentNode.removeChild(existing);
+    }
+	
+	Pell(value, form.parentNode);
+}
 
-// function tribButton(){
-//     Trib(2, TribDiv);
-// }
+var pellSlider = function(me){
+    var form = me.parentNode;
+	var button = form.querySelector('button.pell');
+	button.textContent = 'Pell(' + me.value + ')';
+}
+
+var tribSlider = function(me){
+    var form = me.parentNode;
+	var button = form.querySelector('button.trib');
+	button.textContent = 'Trib(' + me.value + ')';
+}
+
+
+var tribButton = function(me){
+    var form = me.parentNode;
+	var slider = form.querySelector('input');
+	var value = slider.value;
+	
+	var existing = form.parentNode.querySelector('div');
+    if(existing){
+        form.parentNode.removeChild(existing);
+    }
+	
+	Trib(value, form.parentNode);
+}
+
+var slider = function(me){
+    
+    fibSlider(me);
+    pellSlider(me);
+    tribSlider(me);
+}
